@@ -41,5 +41,4 @@ public class HelloControllerTest {
                  .andExpect(jsonPath("$.amount",is(amount)));
     }
 
-
 }
