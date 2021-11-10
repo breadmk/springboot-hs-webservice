@@ -1,5 +1,6 @@
 package com.company.hs.domain.posts;
 
+import com.company.hs.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity // 테이블과 링크될 클래스 라는 의미. 보통 SaleManager.java = > sales_manager table ||| Entity 클래스에서는 절대 setter를 생성하지 않음.
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성규칙을 나타냄. {GenerationType.IDENTITY} = auto increment
