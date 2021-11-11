@@ -1,4 +1,4 @@
-package com.company.hs;
+package com.company.hs.web;
 
 import com.company.hs.web.HelloController;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
