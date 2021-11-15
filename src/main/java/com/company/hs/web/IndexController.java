@@ -1,13 +1,17 @@
 package com.company.hs.web;
 
+import com.company.hs.config.auth.dto.SessionUser;
 import com.company.hs.service.posts.PostsService;
 import com.company.hs.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.h2.engine.Mode;
+import org.h2.engine.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.servlet.http.HttpSession;
 
 
 // mustache 기본 템플릿은 src/main/resources/templates 로 자동 지정
@@ -17,11 +21,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
     
     @GetMapping("/")
     public String index(Model model){
 
         model.addAttribute("posts",postsService.findAllDesc());
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if (user != null) {
+
+//            model.addAttribute("userName", user.getName());
+            model.addAttribute("realName", user.getName());
+
+        }
+
+
         return "index";
     }
 
