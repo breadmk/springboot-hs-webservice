@@ -20,24 +20,24 @@ public class User extends BaseTimeEntity {
     private String name;
 
     @Column(nullable = false)
-    private String email;
+    private  String email;
 
     @Column
     private String picture;
 
-    @Enumerated(EnumType.STRING) //Enum 타입 기본 저장은 int || 무슨 내용인지 모르기 때문에 String으로 선언.
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private com.company.hs.domain.user.Role role;
 
     @Builder
-    public User(String name, String email, String picture, Role role){
+    public User(String name, String email, String picture, Role role) {
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.role = role;
     }
 
-    public User update(String name, String picture){
+    public User update(String name,String picture){
         this.name = name;
         this.picture = picture;
 
@@ -47,5 +47,4 @@ public class User extends BaseTimeEntity {
     public String getRoleKey(){
         return this.role.getKey();
     }
-
 }
