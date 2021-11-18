@@ -1,6 +1,6 @@
 language: java
 jdk:
-  -openjdk11
+  - openjdk11
 
 branches:
   only:
@@ -9,7 +9,6 @@ branches:
 before_install:
   - chmod +x gradlew
 
-# Travis CI 서버의 Home
 cache:
   directories:
     - '$HOME/.m2/repository'
