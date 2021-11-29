@@ -2,10 +2,7 @@ package com.company.hs.service.posts;
 
 import com.company.hs.domain.posts.Posts;
 import com.company.hs.domain.posts.PostsRepository;
-import com.company.hs.web.dto.PostsListResponseDto;
-import com.company.hs.web.dto.PostsResponseDto;
-import com.company.hs.web.dto.PostsSaveRequestDto;
-import com.company.hs.web.dto.PostsUpdateRequestDto;
+import com.company.hs.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +46,10 @@ public class PostsService {
         Posts posts = postsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id =" +id));
 
         postsRepository.delete(posts);
+    }
+
+    @Transactional
+    public int updateHit(Long id){
+        return postsRepository.updateHit(id);
     }
 }

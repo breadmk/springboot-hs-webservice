@@ -4,6 +4,7 @@ import com.company.hs.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -24,14 +25,22 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    @ColumnDefault("0")
+    private int hit;
+
     @Builder
-    public Posts(String title,String content,String author){
+    public Posts(String title,String content,String author,int hit){
         this.title = title;
         this.content = content;
         this.author = author;
+        this.hit = hit;
     }
     public void update(String title,String content){
         this.title = title;
         this.content = content;
+    }
+
+    public void hitUpdate(int hit){
+        this.hit = hit;
     }
 }
