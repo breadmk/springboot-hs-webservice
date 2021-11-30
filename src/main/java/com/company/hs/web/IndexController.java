@@ -67,10 +67,8 @@ public class IndexController {
         return "posts-content";
     }
 
-    @GetMapping("/location/{id}")
-    public String location(@PathVariable Long id, Model model){
-        PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("view", postsService.updateHit(id));
+    @GetMapping("/location")
+    public String location(){
         return "location";
     }
 
