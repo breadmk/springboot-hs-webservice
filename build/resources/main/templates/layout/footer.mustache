@@ -3,5 +3,41 @@
 
 <!--index.js 추가-->
 <script src="/js/app/index.js"></script>
+<script>
+var HOME_PATH = window.HOME_PATH || '.';
+
+var cityhall = new naver.maps.LatLng(37.60363757673828, 127.06633737864736),
+    map = new naver.maps.Map('map', {
+        center: cityhall.destinationPoint(150, 150),
+        zoom: 17
+    }),
+    marker = new naver.maps.Marker({
+        map: map,
+        position: cityhall
+    });
+
+var contentString = [
+        '<div class="iw_inner">',
+        '   <h3>강땡네 집</h3>',
+        '   <p>서울특별시 동대문구 이문동 220-8 스위트빌 402호<br />',
+        '       <a href="#" target="_blank">010-9140-1058 | 010-9564-9501 </a>',
+        '   </p>',
+        '</div>'
+    ].join('');
+
+var infowindow = new naver.maps.InfoWindow({
+    content: contentString
+});
+
+naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+
+infowindow.open(map, marker);
+</script>
 </body>
 </html>

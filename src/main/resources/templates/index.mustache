@@ -23,42 +23,46 @@
             <th>글번호</th>
             <th>제목</th>
             <th>작성자</th>
-            <th>조회수</th>
-            <th>최종수정일</th>
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#posts}}
             <tr>
-                <td>{{id}}</td>
-                <td><a href="/location/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-                <td>{{hit}}</td>
-                <td>{{modifiedDate}}</td>
+                <td>1</td>
+                <td><a href="/location/1">오시는길</a></td>
+                <td>강민규</td>
             </tr>
-        {{/posts}}
+            <tr>
+                <td>2</td>
+                <td><a href="/parking">주차안내</a></td>
+                <td>강민규</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="/write">글 쓰는 법</a></td>
+                <td>강민규</td>
+            </tr>
         </tbody>
     </table>
 <!-- 목록 출력 영영 -->
-<!--<table class="table table-horizontal table-bordered">-->
-<!--    <thead class="thred-strong">-->
-<!--        <tr>-->
-<!--            <th>게시글번호</th>-->
-<!--            <th>제목</th>-->
-<!--            <th>작성자</th>-->
-<!--            <th>최종수정일</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
-<!--    <tbody id="tbody">-->
-<!--    {{#posts}}-->
-<!--    <tr>-->
-<!--        <td>{{id}}</td>-->
-<!--        <td><a href="/posts/update/{{id}}">{{title}}</a></td>-->
-<!--        <td>{{author}}</td>-->
-<!--        <td>{{modifiedDate}}</td>-->
-<!--    </tr>-->
-<!--    {{/posts}}-->
-<!--    </tbody>-->
-<!--</table>-->
+<table class="table table-horizontal table-bordered">
+    <thead class="thred-strong">
+        <tr>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>최종작성일</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#posts}}
+    <tr>
+        <td>{{id}}</td>
+        <td><a href="/posts/content/{{id}}">{{title}}</a></td>
+        <td>{{author}}</td>
+        <td>{{modifiedDate}}</td>
+    </tr>
+    {{/posts}}
+    </tbody>
+</table>
 </div>
 {{>layout/footer}}

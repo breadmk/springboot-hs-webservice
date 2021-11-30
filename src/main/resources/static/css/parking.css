@@ -1,0 +1,27 @@
+.h1{
+    text-align: center;
+    }
+.container1{
+    width: 1600px;
+    height: auto;
+
+    }
+.content {
+	width: auto;
+	height: auto;
+    font-size: x-large;
+    border: 1px solid gray;
+    }
+.content1{
+    text-align: center;
+    font-size: x-large;
+    }
+.image{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:center;
+    }
+.content1 img{
+    width: 400px;
+    height : 400px;
+    }

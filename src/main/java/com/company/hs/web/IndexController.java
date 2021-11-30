@@ -7,10 +7,16 @@ import com.company.hs.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.h2.engine.Mode;
 import org.h2.engine.Session;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpSession;
 
@@ -50,8 +56,15 @@ public class IndexController {
 
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post",dto);
-
         return "posts-update";
+    }
+
+    @GetMapping("/posts/content/{id}")
+    public String postsContent(@PathVariable Long id, Model model){
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post",dto);
+        model.addAttribute("view", postsService.updateHit(id));
+        return "posts-content";
     }
 
     @GetMapping("/location/{id}")
@@ -61,4 +74,13 @@ public class IndexController {
         return "location";
     }
 
+    @GetMapping("/parking")
+    public String parking(){
+        return "parking";
+    }
+
+    @GetMapping("/write")
+    public String write(){
+        return "write";
+    }
 }
